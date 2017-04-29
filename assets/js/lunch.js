@@ -63,25 +63,31 @@ $(document).ready(function() {
 	// Set delay length
 	}, 1000);
   $('#somewhere-else').click(function() {
-  	count += 1
-    // Add new call message bubble
-	  $(".conversation").append("<div class='call'><p class='call__text'>Somewhere else.</p></div>");
-		// Force scroll to bottom of page
-		window.scrollTo(0,document.body.scrollHeight);
-		// Get a new random restaurant
-		var getRestaurant = function(restaurants) {
-			var choice = Math.floor(Math.random() * restaurants.length);
-		    return restaurants[choice];
+  	if (restaurantsList.length > 0) {
+	  	count += 1
+	    // Add new call message bubble
+		  $(".conversation").append("<div class='call'><p class='call__text'>Somewhere else.</p></div>");
+			// Force scroll to bottom of page
+			window.scrollTo(0,document.body.scrollHeight);
+			// Get a new random restaurant
+			var getRestaurant = function(restaurants) {
+				var choice = Math.floor(Math.random() * restaurants.length);
+			    return restaurants[choice];
+			}
+			var decision = getRestaurant(restaurantsList);
+			// Delay new restaurant message
+		  setTimeout(function(){
+		  	// Add new restaurant message
+			  $(".conversation").append( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" );
+	      // Force scroll to bottom of page
+			  window.scrollTo(0,document.body.scrollHeight);
+			// Set delay length
+			}, 750);
+		} else {
+			// Add end-of-the-line message
+		  $(".conversation").append("<div class='response'><p>I'm out of ideas.</p></div>");
+		  $("#somewhere-else").replaceWith('<p class="text-input__option">&nbsp;</p>');
 		}
-		var decision = getRestaurant(restaurantsList);
-		// Delay new restaurant message
-	  setTimeout(function(){
-	  	// Add new restaurant message
-		  $(".conversation").append( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" );
-      // Force scroll to bottom of page
-		  window.scrollTo(0,document.body.scrollHeight);
-		// Set delay length
-		}, 750);
 	});
 });
 
