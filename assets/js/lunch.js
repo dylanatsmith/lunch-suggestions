@@ -61,7 +61,7 @@ $(document).ready(function() {
     // Force scroll to bottom of page
 	  window.scrollTo(0,document.body.scrollHeight);
 	// Set delay length
-	}, 1500);
+	}, 1000);
   $('#somewhere-else').click(function() {
   	count += 1
     // Add new call message bubble
