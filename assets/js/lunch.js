@@ -43,7 +43,7 @@ var restaurantsList = [
     website : 'http://www.the-white-hart.co.uk/home'
   }
 ];
-// Show time
+
 $(document).ready(function() {
   // Prototype to remove object from array, removes first matching object only
 	Array.prototype.remove = function (v) {
@@ -61,7 +61,6 @@ $(document).ready(function() {
 	var decision = getRestaurant(restaurantsList);
 	// Remove selected restaurant from list
 	restaurantsList.remove(decision);
-	console.log(restaurantsList);
 	// Delay new restaurant message
   setTimeout(function(){
   	// Add new restaurant message
@@ -70,11 +69,17 @@ $(document).ready(function() {
 	  window.scrollTo(0,document.body.scrollHeight);
 	// Set message delay
 	}, 1000);
+	setTimeout(function(){
+		// Allow new suggestion
+	  $("#somewhere-else").text('Somewhere else.');
+	}, 2000);
   $('#somewhere-else').click(function() {
   	// Check that there are restaurants left
   	if (restaurantsList.length > 0) {
 	    // Add new call message bubble
 		  $(".conversation").append("<div class='call'><p class='call__text'>Somewhere else.</p></div>");
+		  // Remove somewhere else option
+			$("#somewhere-else").html('&#xfeff;');
 			// Force scroll to bottom of page
 			window.scrollTo(0,document.body.scrollHeight);
 			// Get a new random restaurant
@@ -85,7 +90,6 @@ $(document).ready(function() {
 			var decision = getRestaurant(restaurantsList);
 			// Remove selected restaurant from list
 			restaurantsList.remove(decision);
-			console.log(restaurantsList);
 			// Delay new restaurant message
 		  setTimeout(function(){
 		  	// Add new restaurant message
@@ -93,7 +97,12 @@ $(document).ready(function() {
 	      // Force scroll to bottom of page
 			  window.scrollTo(0,document.body.scrollHeight);
 			// Set message delay
-			}, 750);
+			}, 1000);
+
+			// Allow new suggestion
+			setTimeout(function(){
+			  $("#somewhere-else").html('Somewhere else.');
+		  }, 2000);
 		} else {
 			// Add new call message bubble
 		  $(".conversation").append("<div class='call'><p class='call__text'>Somewhere else.</p></div>");
@@ -107,7 +116,7 @@ $(document).ready(function() {
 			  // Force scroll to bottom of page
 			  window.scrollTo(0,document.body.scrollHeight);
 			// Set message delay
-		  }, 750);
+		  }, 1000);
 		}
 	});
 });
