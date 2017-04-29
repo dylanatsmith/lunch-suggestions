@@ -7,7 +7,7 @@
 # Force HTTPS
 RewriteEngine On 
 # RewriteCond %{SERVER_PORT} 80 
-# RewriteRule ^(.*)$ https://solo-conf.com/$1 [R,L]
+# RewriteRule ^(.*)$ https://lunch.dylanatsmith.com/$1 [R,L]
 
 # Prevent directory listings
 Options All -Indexes
