@@ -56,20 +56,14 @@ $(document).ready(function() {
 	var decision = getRestaurant(restaurantsList);
 	// Delay new restaurant message
   setTimeout(function(){
-  	console.log('Test');
   	// Add new restaurant message
-	  $(".conversation").append("<div class='response'><a class='response__text' id='website" + count + "' target='_blank'><p id='restaurant" + count + "'></p><span class='response__arrow'>&nbsp;⟶</span></a></div>");
-    // Inject new random selection into new message
-		var decision = getRestaurant(restaurantsList);
-		document.getElementById("restaurant" + count).innerHTML = decision.name;
-	  $('#website' + count).attr("href", decision.website);
+		  $(".conversation").append( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" );
     // Force scroll to bottom of page
 	  window.scrollTo(0,document.body.scrollHeight);
 	// Set delay length
-	}, 750);
+	}, 1500);
   $('#somewhere-else').click(function() {
   	count += 1
-  	console.log('website' + count);
     // Add new call message bubble
 	  $(".conversation").append("<div class='call'><p class='call__text'>Somewhere else.</p></div>");
 		// Force scroll to bottom of page
@@ -83,7 +77,7 @@ $(document).ready(function() {
 		// Delay new restaurant message
 	  setTimeout(function(){
 	  	// Add new restaurant message
-		  $(".conversation").append( "<div class='response'><a href='" + decision.website + "' class='response__text' id='website" + count + "' target='_blank'><p id='restaurant" + count + "'>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" );
+		  $(".conversation").append( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" );
       // Force scroll to bottom of page
 		  window.scrollTo(0,document.body.scrollHeight);
 		// Set delay length
