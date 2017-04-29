@@ -44,9 +44,6 @@ var restaurantsList = [
   }
 ];
 
-// Set up for incremental IDs
-var count = 1
-
 $(document).ready(function() {
 	// Randomly select restaurant
 	var getRestaurant = function(restaurants) {
@@ -64,7 +61,6 @@ $(document).ready(function() {
 	}, 1000);
   $('#somewhere-else').click(function() {
   	if (restaurantsList.length > 0) {
-	  	count += 1
 	    // Add new call message bubble
 		  $(".conversation").append("<div class='call'><p class='call__text'>Somewhere else.</p></div>");
 			// Force scroll to bottom of page
@@ -90,10 +86,3 @@ $(document).ready(function() {
 		}
 	});
 });
-
-// Array Remove - By John Resig (MIT Licensed)
-Array.prototype.remove = function(from, to) {
-    var rest = this.slice((to || from) + 1 || this.length);
-    this.length = from < 0 ? this.length + from : from;
-    return this.push.apply(this, rest);
-};
