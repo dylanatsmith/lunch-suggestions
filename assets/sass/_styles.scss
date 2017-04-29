@@ -50,6 +50,7 @@ body {
 
 	span {
 		display:    inline-block;
+		opacity:    0;
 		overflow:   hidden;
 		position:   relative;
 		top:        0.125rem;
@@ -58,6 +59,7 @@ body {
 	}
 
 	&:hover span {
+		opacity: 1;
 		width: 2.25rem;
 	}
 }
