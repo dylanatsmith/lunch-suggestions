@@ -1,0 +1,80 @@
+body {
+	margin: 2.0rem 0;
+}
+
+.conversation,
+.text-input {
+	margin: 0 auto;
+	width:  calc(33.33% - 1.0rem);
+	
+	/* @media (min-width: 1200px) {
+    	font-size: 40px;
+    	width:     calc(100% - 10.0rem);
+    } */
+}
+
+.call {
+	text-align: right;
+}
+
+.call,
+.response {
+	margin-bottom: 1.0rem;
+}
+
+.call__text,
+.response__text,
+.text-input__option {
+	display:       inline-block;
+	font-size:     1.25rem;
+	line-height:   1.0;
+	padding: 	   0.75rem 1.0rem;
+}
+
+.call__text {
+	background:    $bg-blue;
+	border-radius: 10.0rem 10.0rem 0 10.0rem;
+	color:         $white;
+}
+
+.response__text {
+	background:      $bg-grey;
+	border-radius:   10.0rem 10.0rem 10.0rem 0;
+	color:           $black;
+	text-decoration: none;
+	transition:      all 0.3s ease;
+
+	p {
+		display: inline-block;
+	}
+
+	span {
+		display:    inline-block;
+		overflow:   hidden;
+		position:   relative;
+		top:        0.125rem;
+		transition: $transition-md;
+		width:      0;
+	}
+
+	&:hover span {
+		width: 2.25rem;
+	}
+}
+
+.text-input {
+	border:        0.0625rem solid $border-grey;
+	border-radius: 10.0rem;
+	margin-top:    1.0rem;
+}
+
+.text-input__option {
+	color:           $border-grey;
+	cursor:          pointer;
+	transition: 	 $transition-sh;
+	text-decoration: none;
+
+	&:hover {
+		color: $black;
+	}
+}

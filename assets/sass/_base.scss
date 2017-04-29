@@ -1,0 +1,39 @@
+html {
+    height:      100%;
+    font-size:   16px;
+/*    @media (max-width: 360px) {
+    	font-size: 12px;
+    }
+    @media (min-width: 475px) {
+    	font-size: 20px;
+    }
+    @media (min-width: 600px) {
+    	font-size: 24px;
+    }
+    @media (min-width: 768px) {
+    	font-size: 28px;
+    }
+    @media (min-width: 900px) {
+    	font-size: 32px;
+    }
+    @media (min-width: 1000px) {
+    	font-size: 36px;
+    }
+    @media (min-width: 1200px) {
+    	font-size: 40px;
+    	padding-top: 2.0rem;
+    } */
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+img {
+    max-width: 100%;
+}
