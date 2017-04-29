@@ -5,8 +5,8 @@ body {
 .conversation,
 .text-input {
 	margin: 0 auto;
-	width:  calc(100% - 1.0rem);
-	
+	width:  calc(100% - 2.0rem);
+
 	@media (min-width: 426px) {
     	width:  26rem;
     }
@@ -66,7 +66,7 @@ body {
 .text-input {
 	border:        0.0625rem solid $border-grey;
 	border-radius: 10.0rem;
-	margin-top:    1.0rem;
+	margin:        1.0rem auto 2.0rem;
 }
 
 a.text-input__option {
