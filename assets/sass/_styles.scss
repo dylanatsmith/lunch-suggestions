@@ -5,12 +5,11 @@ body {
 .conversation,
 .text-input {
 	margin: 0 auto;
-	width:  calc(33.33% - 1.0rem);
+	width:  calc(100% - 1.0rem);
 	
-	/* @media (min-width: 1200px) {
-    	font-size: 40px;
-    	width:     calc(100% - 10.0rem);
-    } */
+	@media (min-width: 426px) {
+    	width:  26rem;
+    }
 }
 
 .call {
