@@ -1,47 +1,82 @@
 var restaurantsList = [
-  {
-    name :    'Cafe 338',
-    website : 'http://cafe338.com/'
-  },
-  {
-    name :    'Dirty Burger',
-    website : 'http://www.eatdirtyburger.com/whitechapel'
-  },
-  {
-    name :    'E. Pellicci',
-    website : 'http://epellicci.com/'
-  },
-  {
-    name :    'Japanese Canteen',
-    website : 'http://www.thejapanesecanteen.co.uk/'
-  },
-  {
-    name :    'McDonald’s',
-    website : 'http://newscult.com/wp-content/uploads/2017/03/ronald-mcdonald-wink-1.jpg'
-  },
-  {
-    name :    'Nando’s',
-    website : 'https://www.nandos.co.uk/eat/restaurants/bethnal-green'
-  },
-  {
-    name :    'Pie pub',
-    website : 'http://www.thefloristarms.co.uk/'
-  },
-  {
-    name    : 'Pill Box Kitchen',
-    website : 'http://thepillboxkitchen.com/'
-  },
-  {
-    name    : 'Pizza pub',
-    website : 'http://www.thecamelpublichouse.london/'
-  },
-  {
-    name    : 'Subway'
-  },
-  {
-    name    : 'The White Hart',
-    website : 'http://www.the-white-hart.co.uk/home'
-  }
+	// Bethnal Green options
+  { name :    'Cafe 338',
+    website : 'http://cafe338.com/' },
+  { name :    'Dirty Burger',
+    website : 'http://www.eatdirtyburger.com/whitechapel' },
+  { name :    'E. Pellicci',
+    website : 'http://epellicci.com/' },
+  { name :    'Japanese Canteen',
+    website : 'http://www.thejapanesecanteen.co.uk/' },
+  { name :    'McDonald’s',
+    website : 'http://newscult.com/wp-content/uploads/2017/03/ronald-mcdonald-wink-1.jpg' },
+  { name :    'Nando’s',
+    website : 'https://www.nandos.co.uk/eat/restaurants/bethnal-green' },
+  { name :    'Pie pub',
+    website : 'http://www.thefloristarms.co.uk/' },
+  { name    : 'Pill Box Kitchen',
+    website : 'http://thepillboxkitchen.com/' },
+  { name    : 'Pizza pub',
+    website : 'http://www.thecamelpublichouse.london/' },
+  { name    : 'Subway' },
+  { name    : 'The White Hart',
+    website : 'http://www.the-white-hart.co.uk/home' },
+  // Clerkenwell options
+  { name :    'Arancini Brothers',
+    website : '' },
+  { name :    'Brewdog',
+    website : '' },
+  { name :    'Benugo',
+    website : '' },
+  { name :    'Chick',
+    website : '' },
+  { name :    'Clerkenwell Kitchen',
+    website : '' },
+  { name :    'Daddy Donkey',
+    website : '' },
+  { name :    'Exmouth Arms',
+    website : '' },
+  { name :    'Itsu',
+    website : '' },
+  { name :    'Jerkkies',
+    website : '' },
+  { name :    'La Cocinita',
+    website : '' },
+  { name :    'La Forchetta',
+    website : '' },
+  { name :    'Leon',
+    website : '' },
+  { name :    'Mugen',
+    website : '' },
+  { name :    'Nando’s',
+    website : '' },
+  { name :    'Panzo',
+    website : '' },
+  { name :    'Pieminister',
+    website : '' },
+  { name :    'Pret',
+    website : '' },
+  { name :    'Risotto man',
+    website : '' },
+  { name :    'Subway',
+    website : '' },
+  { name :    'Tikkarito',
+    website : '' },
+  { name :    'The Crown Tavern',
+    website : '' },
+  { name :    'United Chip',
+    website : '' },
+  { name :    'Veggie Pret',
+    website : '' },
+  // Non-specific suggestions
+  { name :    'Walk down Exmouth Market',
+    website : '' },
+  { name :    'Walk over to Leather Lane',
+    website : '' },
+  { name :    'Hike to Whitecross Market',
+    website : '' },
+  { name :    'Order Deliveroo',
+    website : '' }
 ];
 
 $(document).ready(function() {
