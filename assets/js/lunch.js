@@ -57,9 +57,15 @@ var restaurantsList = [
     website : 'https://deliveroo.co.uk/restaurants/london/clerkenwell?postcode=EC1R0AT' }
 ];
 
+
 function somewhereElse() {
 	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
 };
+
+function scrollToBottom() {
+	window.scrollTo(0,document.body.scrollHeight);
+};
+
 
 $(document).ready(function() {
 
@@ -87,7 +93,7 @@ $(document).ready(function() {
   	// Add new restaurant message
 		  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(300);
     // Force scroll to bottom of page
-	  window.scrollTo(0,document.body.scrollHeight);
+	  scrollToBottom();
 	// Set message delay
 	}, 1000);
 	setTimeout(function(){
@@ -116,7 +122,7 @@ $(document).ready(function() {
 		  	// Add new restaurant message
 			  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(300);
 	      // Force scroll to bottom of page
-			  window.scrollTo(0,document.body.scrollHeight);
+			  scrollToBottom();
 			// Set message delay
 			}, 1000);
 
@@ -128,14 +134,15 @@ $(document).ready(function() {
 			// Add new call message bubble
 		  somewhereElse();
 		  // Force scroll to bottom of page
-			window.scrollTo(0,document.body.scrollHeight);
+			scrollToBottom();
+
 			setTimeout(function(){
 			  // Add end-of-the-line message
 			  $("<div class='response'><p class='response__text'>I'm out of ideas.</p></div>").hide().appendTo(".conversation").fadeIn(300);
 			  // Remove option to prompt new response
 			  $("#somewhere-else").replaceWith('<p class="text-input__option">&#xfeff;</p>');
 			  // Force scroll to bottom of page
-			  window.scrollTo(0,document.body.scrollHeight);
+			  scrollToBottom();
 			// Set message delay
 		  }, 1000);
 		}
