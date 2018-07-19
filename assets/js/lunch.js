@@ -77,11 +77,11 @@ $(document).ready(function() {
 	// Delay new restaurant message
   setTimeout(function(){
   	// Add new restaurant message
-		  $(".conversation").append( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" );
+		  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(700);
     // Force scroll to bottom of page
 	  window.scrollTo(0,document.body.scrollHeight);
 	// Set message delay
-	}, 1000);
+	}, 500);
 	setTimeout(function(){
 		// Allow new suggestion
 	  $("#somewhere-else").text('Somewhere else.');
@@ -106,11 +106,11 @@ $(document).ready(function() {
 			// Delay new restaurant message
 		  setTimeout(function(){
 		  	// Add new restaurant message
-			  $(".conversation").append( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" );
+			  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(700);
 	      // Force scroll to bottom of page
 			  window.scrollTo(0,document.body.scrollHeight);
 			// Set message delay
-			}, 1000);
+			}, 500);
 
 			// Allow new suggestion
 			setTimeout(function(){
@@ -129,7 +129,7 @@ $(document).ready(function() {
 			  // Force scroll to bottom of page
 			  window.scrollTo(0,document.body.scrollHeight);
 			// Set message delay
-		  }, 1000);
+		  }, 500);
 		}
 	});
 });
