@@ -58,9 +58,13 @@ var restaurantsList = [
 ];
 
 
-function somewhereElse() {
+function newSomewhereElse() {
 	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
 };
+
+function allowNewSuggestion() {
+	$("#somewhere-else").html('Somewhere else.');
+}
 
 function scrollToBottom() {
 	window.scrollTo(0,document.body.scrollHeight);
@@ -96,15 +100,14 @@ $(document).ready(function() {
 	  scrollToBottom();
 	// Set message delay
 	}, 1000);
-	setTimeout(function(){
-		// Allow new suggestion
-	  $("#somewhere-else").text('Somewhere else.');
-	}, 2000);
+
+	setTimeout(allowNewSuggestion, 2000);
+
   $('#somewhere-else').click(function() {
   	// Check that there are restaurants left
   	if (restaurantsList.length > 0) {
 	    // Add new call message bubble
-		  somewhereElse();
+		  newSomewhereElse();
 		  // Remove somewhere else option
 			$("#somewhere-else").html('&#xfeff;');
 			// Force scroll to bottom of page
@@ -126,13 +129,11 @@ $(document).ready(function() {
 			// Set message delay
 			}, 1000);
 
-			// Allow new suggestion
-			setTimeout(function(){
-			  $("#somewhere-else").html('Somewhere else.');
-		  }, 2000);
+			setTimeout(allowNewSuggestion, 2000);
+
 		} else {
 			// Add new call message bubble
-		  somewhereElse();
+		  newSomewhereElse();
 		  // Force scroll to bottom of page
 			scrollToBottom();
 
