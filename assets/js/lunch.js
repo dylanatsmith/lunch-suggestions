@@ -1,5 +1,5 @@
+// List of restaurants
 var restaurantsList = [
-  // Clerkenwell options
   { name :    'Arancini Brothers',
     website : 'https://arancinibrothers.com/#location' },
   { name :    'Brewdog',
@@ -46,7 +46,7 @@ var restaurantsList = [
     website : 'http://www.unitedchip.co.uk/' },
   { name :    'Veggie Pret',
     website : 'https://pret.co.uk/en-gb/find-a-pret/ec1r0at/' },
-  // Non-specific suggestions
+  // A few non-specific suggestions
   { name :    'Walk down Exmouth Market',
     website : 'http://exmouth.london/' },
   { name :    'Walk over to Leather Lane',
@@ -58,7 +58,8 @@ var restaurantsList = [
 ];
 
 $(document).ready(function() {
-  // Prototype to remove object from array, removes first matching object only
+
+  // Remove object from array, removes first matching object only
 	Array.prototype.remove = function (v) {
     if (this.indexOf(v) != -1) {
       this.splice(this.indexOf(v), 1);
@@ -66,14 +67,17 @@ $(document).ready(function() {
     }
     return false;
 	}
+
 	// Randomly select restaurant
 	var getRestaurant = function(restaurants) {
 		var choice = Math.floor(Math.random() * restaurants.length);
 	    return restaurants[choice];
 	}
 	var decision = getRestaurant(restaurantsList);
+
 	// Remove selected restaurant from list
 	restaurantsList.remove(decision);
+
 	// Delay new restaurant message
   setTimeout(function(){
   	// Add new restaurant message
@@ -81,7 +85,7 @@ $(document).ready(function() {
     // Force scroll to bottom of page
 	  window.scrollTo(0,document.body.scrollHeight);
 	// Set message delay
-	}, 500);
+	}, 1000);
 	setTimeout(function(){
 		// Allow new suggestion
 	  $("#somewhere-else").text('Somewhere else.');
@@ -90,7 +94,7 @@ $(document).ready(function() {
   	// Check that there are restaurants left
   	if (restaurantsList.length > 0) {
 	    // Add new call message bubble
-		  $(".conversation").append("<div class='call'><p class='call__text'>Somewhere else.</p></div>");
+		  $("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
 		  // Remove somewhere else option
 			$("#somewhere-else").html('&#xfeff;');
 			// Force scroll to bottom of page
@@ -110,7 +114,7 @@ $(document).ready(function() {
 	      // Force scroll to bottom of page
 			  window.scrollTo(0,document.body.scrollHeight);
 			// Set message delay
-			}, 500);
+			}, 1000);
 
 			// Allow new suggestion
 			setTimeout(function(){
@@ -118,18 +122,18 @@ $(document).ready(function() {
 		  }, 2000);
 		} else {
 			// Add new call message bubble
-		  $(".conversation").append("<div class='call'><p class='call__text'>Somewhere else.</p></div>");
+		  $("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
 		  // Force scroll to bottom of page
 			window.scrollTo(0,document.body.scrollHeight);
 			setTimeout(function(){
 			  // Add end-of-the-line message
-			  $(".conversation").append("<div class='response'><p class='response__text'>I'm out of ideas.</p></div>");
+			  $("<div class='response'><p class='response__text'>I'm out of ideas.</p></div>").hide().appendTo(".conversation").fadeIn(300);
 			  // Remove option to prompt new response
 			  $("#somewhere-else").replaceWith('<p class="text-input__option">&#xfeff;</p>');
 			  // Force scroll to bottom of page
 			  window.scrollTo(0,document.body.scrollHeight);
 			// Set message delay
-		  }, 500);
+		  }, 1000);
 		}
 	});
 });
