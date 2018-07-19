@@ -58,7 +58,7 @@ var restaurantsList = [
 ];
 
 
-function newSomewhereElse() {
+function newRequestBubble() {
 	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
 }
 
@@ -96,9 +96,8 @@ $(document).ready(function() {
   setTimeout(function(){
   	// Add new restaurant message
 		$( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(300);
-    // Force scroll to bottom of page
+
 	  scrollToBottom();
-	// Set message delay
 	}, 1000);
 
 	setTimeout(allowNewSuggestion, 2000);
@@ -106,12 +105,14 @@ $(document).ready(function() {
   $('#somewhere-else').click(function() {
   	// Check that there are restaurants left
   	if (restaurantsList.length > 0) {
-	    // Add new call message bubble
-		  newSomewhereElse();
+
+		  newRequestBubble();
+
 		  // Remove somewhere else option
 			$("#somewhere-else").html('&#xfeff;');
-			// Force scroll to bottom of page
-			window.scrollTo(0,document.body.scrollHeight);
+
+			scrollToBottom();
+
 			// Get a new random restaurant
 			var getRestaurant = function(restaurants) {
 				var choice = Math.floor(Math.random() * restaurants.length);
@@ -120,20 +121,19 @@ $(document).ready(function() {
 			var decision = getRestaurant(restaurantsList);
 			// Remove selected restaurant from list
 			restaurantsList.remove(decision);
-			// Delay new restaurant message
+
 		  setTimeout(function(){
 		  	// Add new restaurant message
 			  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(300);
-	      // Force scroll to bottom of page
+
 			  scrollToBottom();
-			// Set message delay
 			}, 1000);
 
 			setTimeout(allowNewSuggestion, 2000);
 
 		} else {
 			// Add new call message bubble
-		  newSomewhereElse();
+		  newRequestBubble();
 		  // Force scroll to bottom of page
 			scrollToBottom();
 
