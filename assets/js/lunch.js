@@ -1,4 +1,3 @@
-// List of restaurants
 var restaurantsList = [
   { name :    'Arancini Brothers',
     website : 'https://arancinibrothers.com/#location' },
@@ -57,7 +56,6 @@ var restaurantsList = [
     website : 'https://deliveroo.co.uk/restaurants/london/clerkenwell?postcode=EC1R0AT' }
 ];
 
-
 function allowNewSuggestion() {
 	setTimeout(function() {
 		$("#somewhere-else").html('Somewhere else.');
@@ -68,7 +66,6 @@ function scrollToBottom() {
 	window.scrollTo(0,document.body.scrollHeight);
 }
 
-// Remove object from array, removes first matching object only
 Array.prototype.remove = function (v) {
   if (this.indexOf(v) != -1) {
     this.splice(this.indexOf(v), 1);
@@ -78,53 +75,46 @@ Array.prototype.remove = function (v) {
 }
 
 function showNewRestaurant() {
-	// Randomly select restaurant
+
 	var getRestaurant = function(restaurants) {
 		var choice = Math.floor(Math.random() * restaurants.length);
 	    return restaurants[choice];
 	}
+
 	var decision = getRestaurant(restaurantsList);
-	restaurantsList.remove(decision);
-
-	// Delay new restaurant message
+	
+	restaurantsList.remove(decision); // So it can't be chosen again
+  
   setTimeout(function(){
-  	// Add new restaurant message
 		$( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(300);
-
 	  scrollToBottom();
 	}, 1000);
 }
 
-
 $(document).ready(function() {
 
-	// Give a restaurant on page load
 	showNewRestaurant();
 	allowNewSuggestion();
 
-
   $('#somewhere-else').click(function() {
 
-  	// Add new request chat bubble
-  	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
-		scrollToBottom();
+  	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300); // Add new request chat bubble
 
-  	// Check that there are restaurants left
-  	if (restaurantsList.length > 0) {
+  	if (restaurantsList.length > 0) {        // Check that there are restaurants left
+
 			$("#somewhere-else").html('&#xfeff;'); // Prevent request for new restaurant
 			showNewRestaurant();
+			scrollToBottom();
 			allowNewSuggestion()
 
 		} else {
 
 			setTimeout(function(){
-			  // Add end-of-the-line message
 			  $("<div class='response'><p class='response__text'>I'm out of ideas.</p></div>").hide().appendTo(".conversation").fadeIn(300);
-			  // Remove option to prompt new response
-			  $("#somewhere-else").replaceWith('<p class="text-input__option">&#xfeff;</p>');
-
+			  $("#somewhere-else").replaceWith('<p class="text-input__option">&#xfeff;</p>'); // Remove option to prompt new response
 			  scrollToBottom();
 		  }, 1000);
+
 		}
 	});
 });
