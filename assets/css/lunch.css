@@ -404,9 +404,10 @@ body {
 
 .response__text {
   background: #e5e5ea;
-  /* border-radius:   10.0rem 10.0rem 10.0rem 0; */
   border-radius: 10.0rem;
   color: #000;
+  padding-top: 0.5625rem;
+  padding-bottom: 0.6875rem;
   position: relative;
   text-decoration: none;
   transition: all 0.3s ease; }

@@ -24,9 +24,9 @@ body {
 .call__text,
 .response__text,
 .text-input__option {
-	display:       inline-block;
-	font-size:     1.25rem;
-	line-height:   1.0;
+	display:     inline-block;
+	font-size:   1.25rem;
+	line-height: 1.0;
 	padding: 	   0.75rem 1.0rem;
 }
 
@@ -51,9 +51,10 @@ body {
 
 .response__text {
 	background:      $bg-grey;
-	/* border-radius:   10.0rem 10.0rem 10.0rem 0; */
 	border-radius:   10.0rem;
 	color:           $black;
+	padding-top:     0.5625rem;
+	padding-bottom:  0.6875rem;
 	position:        relative;
 	text-decoration: none;
 	transition:      $transition-lo;
