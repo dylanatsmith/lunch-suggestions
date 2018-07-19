@@ -58,10 +58,6 @@ var restaurantsList = [
 ];
 
 
-function newRequestBubble() {
-	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
-}
-
 function allowNewSuggestion() {
 	$("#somewhere-else").html('Somewhere else.');
 }
@@ -88,8 +84,6 @@ $(document).ready(function() {
 	    return restaurants[choice];
 	}
 	var decision = getRestaurant(restaurantsList);
-
-	// Remove selected restaurant from list
 	restaurantsList.remove(decision);
 
 	// Delay new restaurant message
@@ -103,15 +97,14 @@ $(document).ready(function() {
 	setTimeout(allowNewSuggestion, 2000);
 
   $('#somewhere-else').click(function() {
+  	// Add new request chat bubble
+  	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
+		scrollToBottom();
+
   	// Check that there are restaurants left
   	if (restaurantsList.length > 0) {
-
-		  newRequestBubble();
-
 		  // Remove somewhere else option
 			$("#somewhere-else").html('&#xfeff;');
-
-			scrollToBottom();
 
 			// Get a new random restaurant
 			var getRestaurant = function(restaurants) {
@@ -132,10 +125,6 @@ $(document).ready(function() {
 			setTimeout(allowNewSuggestion, 2000);
 
 		} else {
-			// Add new call message bubble
-		  newRequestBubble();
-		  // Force scroll to bottom of page
-			scrollToBottom();
 
 			setTimeout(function(){
 			  // Add end-of-the-line message
