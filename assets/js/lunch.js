@@ -77,13 +77,7 @@ Array.prototype.remove = function (v) {
   return false;
 }
 
-
-$(document).ready(function() {
-
-	//
-	//  All this is on page load
-	//
-
+function showNewRestaurant() {
 	// Randomly select restaurant
 	var getRestaurant = function(restaurants) {
 		var choice = Math.floor(Math.random() * restaurants.length);
@@ -99,40 +93,26 @@ $(document).ready(function() {
 
 	  scrollToBottom();
 	}, 1000);
+}
 
+
+$(document).ready(function() {
+
+	// Give a restaurant on page load
+	showNewRestaurant();
 	allowNewSuggestion();
 
-	//
-	//  All this is for all clicks after page load
-	//
 
   $('#somewhere-else').click(function() {
+
   	// Add new request chat bubble
   	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
 		scrollToBottom();
 
   	// Check that there are restaurants left
   	if (restaurantsList.length > 0) {
-
-		  // Remove somewhere else option
-			$("#somewhere-else").html('&#xfeff;');
-
-			// Get a new random restaurant
-			var getRestaurant = function(restaurants) {
-				var choice = Math.floor(Math.random() * restaurants.length);
-			    return restaurants[choice];
-			}
-			var decision = getRestaurant(restaurantsList);
-			// Remove selected restaurant from list
-			restaurantsList.remove(decision);
-
-		  setTimeout(function(){
-		  	// Add new restaurant message
-			  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(300);
-
-			  scrollToBottom();
-			}, 1000);
-
+			$("#somewhere-else").html('&#xfeff;'); // Prevent request for new restaurant
+			showNewRestaurant();
 			allowNewSuggestion()
 
 		} else {
