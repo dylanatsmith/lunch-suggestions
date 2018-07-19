@@ -32,16 +32,43 @@ body {
 
 .call__text {
 	background:    $bg-blue;
-	border-radius: 10.0rem 10.0rem 0 10.0rem;
+	border-radius: 10.0rem;
 	color:         $white;
+	position:      relative;
+
+	&::after {
+		content:    '';
+		position:   absolute;
+		bottom:    -0.1875rem;
+		right:       0.0625rem;
+		transform:  rotate(47deg);
+
+		border-top:    0.5rem  solid transparent;
+    border-bottom: 0.5rem  solid transparent;
+    border-left:   0.75rem solid $bg-blue;
+	}
 }
 
 .response__text {
 	background:      $bg-grey;
-	border-radius:   10.0rem 10.0rem 10.0rem 0;
+	/* border-radius:   10.0rem 10.0rem 10.0rem 0; */
+	border-radius:   10.0rem;
 	color:           $black;
+	position:        relative;
 	text-decoration: none;
-	transition:      all 0.3s ease;
+	transition:      $transition-lo;
+
+	&::after {
+		content:    '';
+		position:   absolute;
+		bottom:    -0.1875rem;
+		left:       0.0625rem;
+		transform:  rotate(-47deg);
+
+		border-top:    0.5rem  solid transparent;
+    border-bottom: 0.5rem  solid transparent;
+    border-right:  0.75rem solid $bg-grey;
+	}
 
 	p {
 		display: inline-block;
@@ -72,7 +99,7 @@ body {
 a.text-input__option {
 	color:           $border-grey;
 	cursor:          pointer;
-	transition: 	 $transition-sh;
+	transition: 	   $transition-sh;
 	text-decoration: none;
 
 	&:hover {
