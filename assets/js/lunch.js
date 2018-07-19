@@ -56,12 +56,14 @@ var restaurantsList = [
     website : 'https://deliveroo.co.uk/restaurants/london/clerkenwell?postcode=EC1R0AT' }
 ];
 
-var chatBubbleFade = 300;
+var bubbleFade    = 300;
+var suggestionDelay = 1000;
+var promptDelay   = 3000;
 
 function allowNewSuggestion() {
 	setTimeout(function() {
 		$("#somewhere-else").html('Somewhere else.');
-	}, 3000)
+	}, promptDelay)
 }
 
 function scrollToBottom() {
@@ -88,9 +90,9 @@ function showNewRestaurant() {
 	restaurantsList.remove(decision); // So it can't be chosen again
   
   setTimeout(function(){
-		$( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(chatBubbleFade);
+		$( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(bubbleFade);
 	  scrollToBottom();
-	}, 1000);
+	}, suggestionDelay);
 }
 
 $(document).ready(function() {
@@ -100,7 +102,7 @@ $(document).ready(function() {
 
   $('#somewhere-else').click(function() {
 
-  	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(chatBubbleFade); // Add new request chat bubble
+  	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(bubbleFade); // Add new request chat bubble
 
   	if (restaurantsList.length > 0) {        // Check that there are restaurants left
 
@@ -112,10 +114,10 @@ $(document).ready(function() {
 		} else {
 
 			setTimeout(function(){
-			  $("<div class='response'><p class='response__text'>I'm out of ideas.</p></div>").hide().appendTo(".conversation").fadeIn(chatBubbleFade);
+			  $("<div class='response'><p class='response__text'>I'm out of ideas.</p></div>").hide().appendTo(".conversation").fadeIn(bubbleFade);
 			  $("#somewhere-else").replaceWith('<p class="text-input__option">&#xfeff;</p>'); // Remove option to prompt new response
 			  scrollToBottom();
-		  }, 1000);
+		  }, suggestionDelay);
 
 		}
 	});
