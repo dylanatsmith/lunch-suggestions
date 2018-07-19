@@ -77,7 +77,7 @@ $(document).ready(function() {
 	// Delay new restaurant message
   setTimeout(function(){
   	// Add new restaurant message
-		  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(700);
+		  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(300);
     // Force scroll to bottom of page
 	  window.scrollTo(0,document.body.scrollHeight);
 	// Set message delay
@@ -106,7 +106,7 @@ $(document).ready(function() {
 			// Delay new restaurant message
 		  setTimeout(function(){
 		  	// Add new restaurant message
-			  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(700);
+			  $( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(300);
 	      // Force scroll to bottom of page
 			  window.scrollTo(0,document.body.scrollHeight);
 			// Set message delay
