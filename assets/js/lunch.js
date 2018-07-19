@@ -6,7 +6,7 @@ var restaurantsList = [
   { name :    'Benugo',
     website : 'https://benugo.com/cafes/clerkenwell' },
   { name :    'Chick',
-    website : '#' },
+    website :  null },
   { name :    'Clerkenwell Kitchen',
     website : 'http://theclerkenwellkitchen.co.uk/' },
   { name :    'Daddy Donkey',
@@ -20,7 +20,7 @@ var restaurantsList = [
   { name :    'La Cocinita',
     website : 'https://facebook.com/lacocinitastreetfood/' },
   { name :    'La Forchetta',
-    website : '#' },
+    website :  null },
   { name :    'Leon',
     website : 'https://leon.co/restaurants/farringdon/' },
   { name :    'Mugen',
@@ -86,11 +86,17 @@ function showNewRestaurant() {
 	}
 
 	var decision = getRestaurant(restaurantsList);
+
+	if ( (decision.website) == null ) {
+		var responseDiv = "<div class='response'><a class='response__text'><p>" + decision.name + "</p><span class='response__arrow' style='width:0!important;'>&nbsp;⟶</span></a></div>"
+	} else {
+		var responseDiv = "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>"
+	}
 	
 	restaurantsList.remove(decision); // So it can't be chosen again
   
   setTimeout(function(){
-		$( "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>" ).hide().appendTo(".conversation").fadeIn(bubbleFade);
+		$( responseDiv ).hide().appendTo(".conversation").fadeIn(bubbleFade);
 	  scrollToBottom();
 	}, suggestionDelay);
 }
@@ -105,20 +111,17 @@ $(document).ready(function() {
   	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(bubbleFade); // Add new request chat bubble
 
   	if (restaurantsList.length > 0) {        // Check that there are restaurants left
-
 			$("#somewhere-else").html('&#xfeff;'); // Prevent request for new restaurant
 			showNewRestaurant();
 			scrollToBottom();
 			allowNewSuggestion()
 
 		} else {
-
 			setTimeout(function(){
 			  $("<div class='response'><p class='response__text'>I'm out of ideas.</p></div>").hide().appendTo(".conversation").fadeIn(bubbleFade);
 			  $("#somewhere-else").replaceWith('<p class="text-input__option">&#xfeff;</p>'); // Remove option to prompt new response
 			  scrollToBottom();
 		  }, suggestionDelay);
-
 		}
 	});
 });
