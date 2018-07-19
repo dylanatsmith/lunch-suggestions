@@ -90,7 +90,7 @@ function showNewRestaurant() {
 	if ( (decision.website) == null ) {
 		var responseDiv = "<div class='response'><a class='response__text'><p>" + decision.name + "</p><span class='response__arrow' style='width:0!important;'>&nbsp;⟶</span></a></div>"
 	} else {
-		var responseDiv = "<div class='response'><a href='" + decision.website + "' class='response__text' target='_blank'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>"
+		var responseDiv = "<div class='response'><a class='response__text' target='_blank' href='" + decision.website + "'><p>" + decision.name + "</p><span class='response__arrow'>&nbsp;⟶</span></a></div>"
 	}
 	
 	restaurantsList.remove(decision); // So it can't be chosen again
