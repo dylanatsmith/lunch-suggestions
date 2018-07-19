@@ -70,17 +70,17 @@ function scrollToBottom() {
 	window.scrollTo(0,document.body.scrollHeight);
 }
 
+// Remove object from array, removes first matching object only
+Array.prototype.remove = function (v) {
+  if (this.indexOf(v) != -1) {
+    this.splice(this.indexOf(v), 1);
+    return true;
+  }
+  return false;
+}
+
 
 $(document).ready(function() {
-
-  // Remove object from array, removes first matching object only
-	Array.prototype.remove = function (v) {
-    if (this.indexOf(v) != -1) {
-      this.splice(this.indexOf(v), 1);
-      return true;
-    }
-    return false;
-	}
 
 	// Randomly select restaurant
 	var getRestaurant = function(restaurants) {
