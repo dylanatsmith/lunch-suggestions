@@ -59,7 +59,9 @@ var restaurantsList = [
 
 
 function allowNewSuggestion() {
-	$("#somewhere-else").html('Somewhere else.');
+	setTimeout(function() {
+		$("#somewhere-else").html('Somewhere else.');
+	}, 2000)
 }
 
 function scrollToBottom() {
@@ -78,6 +80,10 @@ Array.prototype.remove = function (v) {
 
 $(document).ready(function() {
 
+	//
+	//  All this is on page load
+	//
+
 	// Randomly select restaurant
 	var getRestaurant = function(restaurants) {
 		var choice = Math.floor(Math.random() * restaurants.length);
@@ -94,7 +100,11 @@ $(document).ready(function() {
 	  scrollToBottom();
 	}, 1000);
 
-	setTimeout(allowNewSuggestion, 2000);
+	allowNewSuggestion();
+
+	//
+	//  All this is for all clicks after page load
+	//
 
   $('#somewhere-else').click(function() {
   	// Add new request chat bubble
@@ -103,6 +113,7 @@ $(document).ready(function() {
 
   	// Check that there are restaurants left
   	if (restaurantsList.length > 0) {
+
 		  // Remove somewhere else option
 			$("#somewhere-else").html('&#xfeff;');
 
@@ -122,7 +133,7 @@ $(document).ready(function() {
 			  scrollToBottom();
 			}, 1000);
 
-			setTimeout(allowNewSuggestion, 2000);
+			allowNewSuggestion()
 
 		} else {
 
@@ -131,9 +142,8 @@ $(document).ready(function() {
 			  $("<div class='response'><p class='response__text'>I'm out of ideas.</p></div>").hide().appendTo(".conversation").fadeIn(300);
 			  // Remove option to prompt new response
 			  $("#somewhere-else").replaceWith('<p class="text-input__option">&#xfeff;</p>');
-			  // Force scroll to bottom of page
+
 			  scrollToBottom();
-			// Set message delay
 		  }, 1000);
 		}
 	});
