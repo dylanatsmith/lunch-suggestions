@@ -60,7 +60,7 @@ var restaurantsList = [
 
 function newSomewhereElse() {
 	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
-};
+}
 
 function allowNewSuggestion() {
 	$("#somewhere-else").html('Somewhere else.');
@@ -68,7 +68,7 @@ function allowNewSuggestion() {
 
 function scrollToBottom() {
 	window.scrollTo(0,document.body.scrollHeight);
-};
+}
 
 
 $(document).ready(function() {
