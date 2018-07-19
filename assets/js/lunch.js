@@ -57,6 +57,10 @@ var restaurantsList = [
     website : 'https://deliveroo.co.uk/restaurants/london/clerkenwell?postcode=EC1R0AT' }
 ];
 
+function somewhereElse() {
+	$("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
+};
+
 $(document).ready(function() {
 
   // Remove object from array, removes first matching object only
@@ -94,7 +98,7 @@ $(document).ready(function() {
   	// Check that there are restaurants left
   	if (restaurantsList.length > 0) {
 	    // Add new call message bubble
-		  $("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
+		  somewhereElse();
 		  // Remove somewhere else option
 			$("#somewhere-else").html('&#xfeff;');
 			// Force scroll to bottom of page
@@ -122,7 +126,7 @@ $(document).ready(function() {
 		  }, 2000);
 		} else {
 			// Add new call message bubble
-		  $("<div class='call'><p class='call__text'>Somewhere else.</p></div>").hide().appendTo(".conversation").fadeIn(300);
+		  somewhereElse();
 		  // Force scroll to bottom of page
 			window.scrollTo(0,document.body.scrollHeight);
 			setTimeout(function(){
